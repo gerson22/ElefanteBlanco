@@ -1,0 +1,247 @@
+/* Stylesheet */
+
+
+/* Imports */
+
+@import url(animate.css);
+
+/* Selections */
+
+::selection {
+ 	color: #fff;
+ 	text-shadow: none;
+ 	background: #888;
+}
+
+::-moz-selection {
+ 	color: #fff;
+ 	text-shadow: none;
+ 	background: #444;
+}
+
+/* Basics */
+
+html, body {
+	width: 100%;
+	height: 100%;
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	color: #444;
+	-webkit-font-smoothing: antialiased;
+	background-image: url(fondo.jpg);
+	--background:#ffff;
+}
+
+.img2 {
+  width: 70%;
+  width: 40%;
+}
+#container {
+	--position: fixed;
+	width: 400px;
+	height: 500px;
+	margin: 0 auto;
+text-align:center;
+	--border: 1px solid #ccc;
+	--border-radius: 3px;
+	--border: 1px solid #ccc;
+	--box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+	-webkit-animation-name: bounceIn;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-name: bounceIn;
+	-moz-animation-fill-mode: both;
+	-moz-animation-duration: 1s;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+animation-name: bounceIn;
+	animation-fill-mode: both;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+	color:blue;
+
+}
+
+#login {
+	--position: fixed;
+	width: 70%;
+	height: 80%;
+	margin: 0 auto;
+text-align:center;
+	--border:1px solid #ccc;
+
+}
+.log{
+ 
+color:white;
+	}
+
+.log img{
+ 
+width: 25%;
+	}
+	
+	.log input[type=name],
+input[type=password]{
+ 
+width: 25%;
+	}
+	
+		.log input[type=password]{
+ 
+width: 25%;
+	}
+.boton {
+  display: inline-block;
+  margin: 10px;
+  padding: 2px 9px;
+  background: gray;
+
+
+  /* Font styles */
+   color: white;
+  text-decoration: none;
+  font-family: "Open Sans", Arial, sans-serif;
+
+}
+
+#container img {
+padding-top:10px;
+width:90%;
+height:30%;
+}
+
+form {
+	margin: 0 auto;
+	--margin-top: 10px;
+}
+
+label {
+	color: white;
+	display: inline-block;
+	--margin-left: 18px;
+	--padding-top: 10px;
+	font-size: 14px;
+}
+
+h1 {
+	color: #ffffff;
+	display: inline-block;
+	margin-left: 18px;
+	padding-top: 10px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+p a {
+	font-size: 11px;
+	color: #aaa;
+	float: right;
+	margin-top: -13px;
+	margin-right: 20px;
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	transition: all .4s ease;
+}
+
+p a:hover {
+	color: #555;
+}
+
+input {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 14px;
+	outline: none;
+}
+
+input[type=name],
+input[type=password] {
+	color: #666;
+	padding-left: 10px;
+	margin: 10px;
+	margin-top: 12px;
+	margin-left: 18px;
+	width: 240px;
+	height: 30px;
+	border: 2px solid #c7d0d2;
+	border-radius: 5px;
+	--box-shadow: inset 0 1px 1px;
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	transition: all .4s ease;
+	
+		position: relative;
+}
+
+input[type=name],
+input[type=password] {
+background: url("usuario.png") no-repeat 0 0 transparent;
+color:#FFFFFF;
+background-position:right;
+}
+
+input[type=name]:hover,
+input[type=password]:hover {
+	--border: 2px solid #b6bfc0;
+	--box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .7), 0 0 0 5px #f5f7f8;
+}
+
+input[type=name]:focus,
+input[type=password]:focus {
+	--border: 1px solid #a8c9e4;
+	--box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #e6f2f9;
+}
+
+#lower {
+	background: #013bbd;
+	width: 100%;
+	height: 69px;
+	margin-top: 20px;
+	box-shadow: inset 0 0px 0px #fff;
+	border-top: 0px solid #ccc;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+}
+
+input[type=checkbox] {
+	margin-left: 20px;
+	margin-top: 30px;
+}
+
+.check {
+	margin-left: 3px;
+	font-size: 11px;
+	color: #444;
+	text-shadow: 0 1px 0 #fff;
+}
+
+input[type=submit] {
+	--float: right;
+	--margin-right: 20px;
+	--margin-top: 20px;
+	--width: 80px;
+	height: 25px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	border-radius: 5px;
+	border: 1px solid gray;
+	--box-shadow: 0 1px 2px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .5);
+	cursor: pointer;
+	background:gray;
+}
+
+input[type=submit]:hover {
+color: #CCFFFF;
+}
+
+input[type=submit]:active {
+color: #CCFFFF;
+}
+
+
+
+
+
