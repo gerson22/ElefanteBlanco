@@ -77,7 +77,6 @@ mygetrequest.onreadystatechange=function(){
 }
 var fechaC=document.getElementById("date1").value;
 var fechaC2=document.getElementById("date2").value;
-
 mygetrequest.open("GET", "lista_dscto_vta.php?fecha="+fechaC+"&fecha2="+fechaC2, true);
 mygetrequest.send(null);
 }
