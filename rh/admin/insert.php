@@ -34,12 +34,16 @@ extract($_POST);
      
      case 'usuario':
 		
-    $q=Usuario::agregarUsuario($nombre,$apellido_paterno,$apellido_materno,3,$fecha_nac,$fecha_ent,
+    $q=Usuario::agregarUsuario($nombre,$apellido_paterno,$apellido_materno,$puesto,$rol,$fecha_nac,$fecha_ent,
 		$salario,$empresa,$sucursal,$depto,
 		$hra_ent,$hra_sal,$toleran,$calleNo,$colonia,$cp,$coord,$tel,$cel,$nivelEst,$carrera,$escuelaEgr,$correo,$edoCivil,
 		$noHijos,$peso,$talla,$imc,$_SESSION['usuario']);
 		echo $q;
      break;
+     
+     case 'puesto':
+		Maestro::agregarPuesto($dcrpuesto,$_SESSION['usuario']);
+		echo 0;
     
 
     }
