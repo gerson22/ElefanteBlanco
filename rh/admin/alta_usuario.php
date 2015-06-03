@@ -704,9 +704,6 @@ $( "#tabs" ).tabs();
     </tr>
     
    
-   
-    
-
     
 </table><br>
 </div>
