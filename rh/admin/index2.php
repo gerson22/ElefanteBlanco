@@ -7,6 +7,16 @@
 <meta name="viewport" content="width = device-width, initial-scale=1, maximum-scale=1"/>
 <title>MEZE RECURSOS HUMANOS</title>
 <link rel="stylesheet" href="estilos.css"/>
+<script src="../ajax/ajax_meze.js"></script>
+     <script language="javascript">
+
+          function buscarEmpleado()
+        {
+
+            bsqEmpleado();
+
+        }
+        </script>
 </head>
 <body>
 	<section id="contenedor">
@@ -16,14 +26,13 @@
 </div>
 -->
 
-<div id="datos">
-<div class="personales">
-<h2>Recursos Humanos</h2><br>
-<img src="../images/meze.png">
-</div>
-
-</div>
+   <?php echo '<div class="busq" style="float:left; padding-top:0%; border:0px solid lightgray; width:26%; text-align:center;">';
+        include('frmBusqEmpleado.php');
+        echo '</div>';
+        ?><br><br><br><br>
+        <div id="resultados">
 		<section id="websites">
+		<img src="../images/meze.png" class="logoMeze"><br>
 			<article>
 				<a href="lst_usuario.php"><img src="usuario.png" height="110" width="110"/></a>
 			<p>Usuario</p>
@@ -41,13 +50,17 @@
 				<p>Departamento</p>
 			</article>
 			<article>
+				<a href="lst_puestos.php"><img src="puestos.png" height="105" width="105"/></a>
+				<p>Puestos</p>
+			</article>
+			<article>
 				<a href="/index.php"><img src="salir.png" height="110" width="110"/></a>
 				<p>Salir</p>
 			</article>
 			
 			
 		</section>
-	
+	</div>
 	</section>
 	
 	
