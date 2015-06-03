@@ -9,6 +9,7 @@ class Usuario
     public $usu_ape_mat;
     public $usu_usuario;
     public $usu_password;
+    public $fk_id_puesto;
     public $fk_id_rol;
     public $usu_fec_nac;
     public $usu_fec_ing;
@@ -44,6 +45,7 @@ class Usuario
 	usu_ape_mat, 
 	usu_usuario, 
 	usu_password, 
+	fk_id_puesto, 
 	fk_id_rol, 
 	DATE_FORMAT(usu_fec_nac,'%d/%m/%Y') as usu_fec_nac,  
 	DATE_FORMAT(usu_fec_ing,'%d/%m/%Y') as usu_fec_ing, 
@@ -84,6 +86,8 @@ class Usuario
         $this->usu_usuario = $usuario['usu_usuario'];
         
         $this->usu_password = $usuario['usu_password'];
+        
+             $this->fk_id_puesto = $usuario['fk_id_puesto'];
         
         $this->fk_id_rol = $usuario['fk_id_rol'];
         
@@ -140,7 +144,7 @@ class Usuario
         return $result;
     }
 
-     public static function agregarUsuario($nombre,$apellido_paterno, $apellido_materno,
+     public static function agregarUsuario($nombre,$apellido_paterno, $apellido_materno,$puesto,
      $rol,
      $fec_nac,$fec_ing,
      $salario,
@@ -183,6 +187,7 @@ class Usuario
 	`usu_ape_mat`, 
 	`usu_usuario`, 
 	`usu_password`, 
+	`fk_id_puesto`, 
 	`fk_id_rol`, 
 	`usu_fec_nac`, 
 	`usu_fec_ing`, 
@@ -215,7 +220,8 @@ class Usuario
 	'$apellido_paterno', 
 	'$apellido_materno',
 	'$usuario',
-	'$password', 
+	'$password',
+	$puesto, 
 	$rol,
 	'$ifecha_nac','$ifecha_ing',$salario,
      '$fkEmpresa','$fkSucursal',
@@ -276,7 +282,7 @@ class Usuario
 	usuario.usu_alta, 
 	usuario.usu_fec_alta,
 	rol_descr,
-	descr_nivel
+	descr_nivel,usu_img
 	  from usuario join rol on
 	  fk_id_rol=id_rol
 	  join nivel_est on id_nivel=usu_nivel_est";
@@ -345,6 +351,93 @@ class Usuario
     }
 
 
+public static function regresaUsrDep($idDepto)
+    {
+		try{
+        $query = "SELECT id_usuario, 
+	usu_nombre, 
+	usu_ape_pat, 
+	usu_ape_mat, 
+	usu_usuario, 
+	usu_password, 
+	fk_id_rol, 
+	usu_fec_nac, 
+	DATE_FORMAT(usu_fec_ing,'%d/%m/%Y') as usu_fec_ing, 
+	usu_slrio_drio, 
+	usu_fk_id_empr, 
+	usu_fk_id_suc, 
+	usu_fk_id_dep, 
+	usu_hra_entr, 
+	usu_hra_sal, 
+	usu_tolerancia, 
+	usu_calle_no, 
+	fk_id_colonia, 
+	usu_cp, 
+	usu_coord, 
+	usu_tel, 
+	usu_cel, 
+	(CASE usu_nivel_est
+	WHEN 'PRI' THEN 'Primaria'
+	WHEN 'SEC' THEN 'Secundaria'
+	WHEN 'BAC' THEN 'Bachillerato' 
+	WHEN 'TEC' THEN 'Técnico' 
+	WHEN 'PRO' THEN 'Profesional' 
+	WHEN 'MAE' THEN 'Maestría' 
+	WHEN 'DOC' THEN 'Doctorado'  
+        END) as usu_nivel_est , 
+	usu_carrera, 
+	usu_esc_egr, 
+	usu_correo, 
+	usu_est_civil, 
+	usu_hijos, 
+	usu_peso, 
+	usu_talla, 
+	usu_imc, 
+	usuario.usu_alta, 
+	usuario.usu_fec_alta,
+	rol_descr,
+	nombre_empresa,nombre_suc,nombre_depto,usu_img
+	  from usuario join rol on
+	  fk_id_rol=id_rol
+	  join empresa on usu_fk_id_empr=id_empresa
+	  join sucursal on usu_fk_id_suc=id_suc
+	  join departamento on usu_fk_id_dep=id_depto
+	  where id_depto=$idDepto";
+        return Database::select($query);
+        }catch (Exception $e) {
+              echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            }
+    }
+    
+    public static function buscarEmpleado($busqueda)
+    {
+		try{
+        $query = "SELECT id_usuario, 
+	usu_nombre, 
+	usu_ape_pat, 
+	usu_ape_mat, 
+	usu_usuario, 
+	usu_password, 
+	fk_id_rol, 
+	usu_fec_nac, 
+	DATE_FORMAT(usu_fec_ing,'%d/%m/%Y') as usu_fec_ing, 
+	usu_slrio_drio, 
+	usu_fk_id_empr, 
+	usu_fk_id_suc, 
+	usu_fk_id_dep, 
+	usu_img
+	  from usuario join rol on
+	  fk_id_rol=id_rol
+	  join empresa on usu_fk_id_empr=id_empresa
+	  join sucursal on usu_fk_id_suc=id_suc
+	  join departamento on usu_fk_id_dep=id_depto
+	  where usu_nombre LIKE '$busqueda%'";
+        return Database::select($query);
+        }catch (Exception $e) {
+              echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            }
+    }
+
 
 public static function valida_usuario($usuario,$password){
            try{
@@ -371,6 +464,16 @@ public static function valida_usuario($usuario,$password){
      function listaRolesUsr(){
            try{
                $query="select id_rol,rol_descr from rol";
+               return Database::select($query);
+
+             }catch (Exception $e) {
+              echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+            }
+    }
+    
+     function listaPuestos(){
+           try{
+               $query="select id_puesto,descr_puesto from puesto";
                return Database::select($query);
 
              }catch (Exception $e) {
@@ -432,7 +535,7 @@ public static function valida_usuario($usuario,$password){
         return Database::update($query);
     }
     
-    public static function actualizaUsuario($nombre,$apellido_paterno, $apellido_materno,
+    public static function actualizaUsuario($nombre,$apellido_paterno, $apellido_materno,$puesto,
      $rol,
      $fec_nac,$fec_ing,
      $salario,
@@ -474,6 +577,7 @@ public static function valida_usuario($usuario,$password){
 	`usu_nombre`='$nombre', 
 	`usu_ape_pat`='$apellido_paterno', 
 	`usu_ape_mat`='$apellido_materno', 
+	`fk_id_puesto`=$puesto, 
 	`fk_id_rol`=$rol, 
 	`usu_fec_nac`='$ifecha_nac', 
 	`usu_fec_ing`='$ifecha_ing', 
