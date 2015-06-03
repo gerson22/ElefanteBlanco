@@ -24,7 +24,7 @@ extract($_POST);
      
      case 'usuario':
 		
-    $q=Usuario::actualizaUsuario($nombre,$apellido_paterno,$apellido_materno,$rol,$fecha_nac,$fecha_ent,
+    $q=Usuario::actualizaUsuario($nombre,$apellido_paterno,$apellido_materno,$puesto,$rol,$fecha_nac,$fecha_ent,
 		$salario,$empresa,$sucursal,$depto,
 		$hra_ent,$hra_sal,$toleran,$calleNo,$colonia,$cp,$coord,$tel,$cel,$nivelEst,$carrera,$escuelaEgr,$correo,$edoCivil,
 		$noHijos,$peso,$talla,$imc,$_SESSION['usuario'],$id_usuario);
