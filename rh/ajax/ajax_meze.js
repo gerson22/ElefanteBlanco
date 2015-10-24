@@ -60,12 +60,31 @@ mygetrequest.send(null);
 }
 
 
+function bsqEmpleado(){
+
+        var mygetrequest=new nuevoAjax();
+mygetrequest.onreadystatechange=function(){
+ if (mygetrequest.readyState==4){
+document.getElementById("resultados").innerHTML='<img src="../images/loader.gif">';
+
+  if (mygetrequest.status==200 || window.location.href.indexOf("http")==-1){
+   document.getElementById("resultados").innerHTML=mygetrequest.responseText;
+  }
+  else{
+   alert("An error has occured making the request")
+  }
+ }
+}
+var busqEmpleado=document.getElementById("emplBusq").value;
+mygetrequest.open("GET", "bsqEmpleados.php?nombre="+busqEmpleado, true);
+mygetrequest.send(null);
+}
 function listaDsctosVta(){
 
         var mygetrequest=new nuevoAjax();
 mygetrequest.onreadystatechange=function(){
  if (mygetrequest.readyState==4){
-
+document.getElementById("divDsctoVta").innerHTML='<img src="images/loader.gif">';
 
   if (mygetrequest.status==200 || window.location.href.indexOf("http")==-1){
    document.getElementById("divDsctoVta").innerHTML=mygetrequest.responseText;
@@ -80,4 +99,5 @@ var fechaC2=document.getElementById("date2").value;
 mygetrequest.open("GET", "lista_dscto_vta.php?fecha="+fechaC+"&fecha2="+fechaC2, true);
 mygetrequest.send(null);
 }
+
 

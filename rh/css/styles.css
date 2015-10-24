@@ -177,9 +177,8 @@ input[type=password] {
 
 input[type=name],
 input[type=password] {
-background: url("usuario.png") no-repeat 0 0 transparent;
+background-image:url('fondo.jpg');
 color:#FFFFFF;
-background-position:right;
 }
 
 input[type=name]:hover,
@@ -240,8 +239,6 @@ color: #CCFFFF;
 input[type=submit]:active {
 color: #CCFFFF;
 }
-
-
 
 
 

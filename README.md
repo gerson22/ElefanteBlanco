@@ -1,2 +1,0 @@
-# ElefanteBlanco
-Recursos Humano

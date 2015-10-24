@@ -1,39 +1,279 @@
-*{margin:0;}
-article{
-	display: inline-block;
+/* 
+    Document   : estilos
+    Created on : 7/08/2010, 04:57:23 PM
+    Author     : Isaac
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+/*
+BODY { 
+background-image: url(../images/fondo.png); 
+background-repeat: no-repeat;
+} 
+*/
+@font-face {
+  font-family: 'Open Sans';
+  src: url('OpenSans-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
 }
-body{
-	background-image:url('../css/fondo.jpg');
-	--color:white;
-	font-family:Arial;
-	font-size:16px;
-	margin:15px;
-	--text-shadow:1px 1px 0 rgba(0,0,0,.3);
+body
+{
+   background:#f2f5fc;
+   font-size:13px;
+   font-family: "Open Sans", Arial, sans-serif;
+}
+.modulos
+{
+  color:#fef400;
+  text-decoration:none;
+  font-family:Arial;
+  font-style:italic;
+     
+}
+
+.impresion {
+
+ width:193px;
+ height:auto;
+ font-family:Arial;
+ font-size:12px;
+ background:#fff;
+}
+
+
+.alineacion
+{
+font-style:italic;
+float:right;
+}
+
+.modulos a
+{
+  color:#fef400;
+  text-decoration:none;
+  font-family:Arial;
+     
+}
+
+.modulos a:hover
+{
+  color:#007cc3;
+  text-decoration:none;
+  font-family:Arial;
+  font-size:20px;
+     
+}
+
+a img
+{
+border: none;
+}
+
+.usuario {
+
+    font-family: Arial;
+   
+  
+
+}
+
+.menu a {
+  padding-right: 10px;
+    padding-left: 10px;
+    color:#000000;
+    text-decoration: none;
+     font-family: "Open Sans", Arial, sans-serif;
+    text-align: left;
+  
+
+}
+
+.menu a:hover {
+    background-color: #007cc3;
+    color:white;
+
+}
+
+.menu #current {
+    background-color: #C4D7ED;
+    color:black;
+
+}
+
+.menu a:active
+{
+
+ background-color: #C4D7ED;
+  color:black;
+
+}
+
+.error-message, label.error {
+                color: #ff0000;
+                margin:0;
+                display: inline;
+                font-size:14px;
+                font-weight:lighter;
+            }
+
+.opciones_listado {
+width: 100%;
+--border-style:solid;
+--border-color:#0000ff;
+text-align: center;
+height: 22px;
+padding-top: 4px;
+font-size: 14px;
+ font-family: "Open Sans", Arial, sans-serif;
+
+}
+
+.opciones_listado a{
+color: #000000;
+text-decoration: none;
 }
 
 
 
-#header {
-background: #fff;
-	width: 100%;
-	height: 70px;
-	--position: fixed;
-	--top:-10;
-	left: 0;
-	--border-bottom: 4px solid #4C9CF1;
-	z-index: 100;
-	color: #666;
-	text-align:center;
-	margin-bottom:15px;
-	
-}  
+.opciones_listado a:hover {
+ color: #0060b0;
+ text-decoration: none;
+}
+
+.titulo_opciones{
+width: 100%;
+--border-style:solid;
+--border-color:none;
+text-align: center;
+height: 22px;
+padding-bottom: 8px;
+font-size: 14px;
+ font-family: "Open Sans", Arial, sans-serif;
+font-weight: bold;
+height: auto;
+
+
+}
+
+
+.inputs {
+    
+    border:1px solid #000000;
+
+}
+
+.inputsventa {
+    
+    border:1px solid #000000;
+    
+    font-size:16px;
+    height:20px;
+
+}
+
+
+
+.boton {
+  display: inline-block;
+  margin: 10px;
+  padding: 2px 9px;
+  background: #007cc3;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  transition: all 0.3s ease-out;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.5),
+    0 2px 2px rgba(0,0,0,0.3),
+    0 0 4px 1px rgba(0,0,0,0.2);
+
+  /* Font styles */
+   color: white;
+  text-decoration: none;
+  font-family: "Open Sans", Arial, sans-serif;
+
+}
+
+.boton:hover  { background: #00Abb3; }
+
+.formulario {
+    color:#000000;
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 13px;
+}
+
+.titulo_listado {
+    background-color:#000000;
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 13px;
+    color: #fef400;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.listado{
+    color:#000000;
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 13px;
+    
+  
+}
+
+.listado a{
+color: #000000;
+text-decoration: none;
+}
+
+.listado a:hover {
+ color: #0060b0;
+ text-decoration: none;
+}
+
+
+
+.login {
+    color:#FFFFFF;
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 14px;
+}
+.checkbox, .radiob {
+	width: 20px;
+	height: 20px;
+	padding: 0 5px 0 0;
+
+
+}
+
+
+.preview
+{
+width:120px;
+border:solid 1px #dedede;
+padding:10px;
+float:center;
+height:130px;
+margin:0 auto;
+}
+#preview
+{
+color:#cc0000;
+font-size:12px;
+margin:0 auto;
+text-align:center;
+}
 
 .exito {
   background-repeat: no-repeat;
     background-position: 10px center;
     color: #4F8A10;
     background-color: #DFF2BF;
-    background-image:url('../css/exito.png');
+    background-image:url('../includes/exito.png');
     padding:15px 10px 15px 50px;
     margin:0 auto;
     text-align:center;
@@ -42,234 +282,31 @@ background: #fff;
     font-size:13px;
     border: 1px solid;
 }
+.divlistas{ overflow:auto; color:#000000; width:600px; height:350px; text-align:center;
+            background:center; margin:0 auto; }
+.nombrejugador{ background:center; text-align:center;  font-family: "Open Sans", Arial, sans-serif; font-size:12px;
+font-weight:bold;}
+.totalGoleo{background:center #FFFFFF; text-align:center;  font-family: "Open Sans", Arial, sans-serif; font-size:12px;
+font-weight:bold;}
 
-nav ul{
-	font-size:0;
-	padding:0;
-}
-nav ul li{
-	background:rgba(0,0,0,.5);
-	display: inline-block;
-	font-size:16px;
-	height:40px;
-	line-height:40px;
-	padding:10px 0;
-	vertical-align: top;
-	width:20%;
-}
-nav ul li:hover{
-	background:rgba(0,0,0,.6);
-	
-}
-nav ul li img {
-	height:50px;
-}
-nav ul li a{
-	color: #DDD;
-	display: block;
-	font-weight:bold;
-	text-align:center;
-	text-transform:uppercase;
-	text-decoration:none;
-}
-
-	.superior{
-		background: #DDD;
-		position: fixed;
-		top: 0px;
-		left: 0px;
-		width: 100%;
-		height: auto;
-		margin:auto;
-		
-	}
-	
-		.centrar{
-
-		margin:0 auto;
-		text-align:center;
-		--border:solid 1px #FFF;
-		
-	}
-	
-			.listado{
-
-		margin:0 auto;
-		text-align:center;
-	   --border:solid 1px #000;
-		background:white;
-		   color:blue;
-	}
-	
-	.listado a{
-
-text-decoration: none;
-		   color:blue;
-	}
-	
-	.listado a:hover{
-
-text-decoration: underline;
-		   color:blue;
-	}
-				.frml{
-
-		margin:0 auto;
-		text-align:center;
-	}
-	
-					.frml tr{
+.centrar{background:center #f2f5fc; text-align:center;}
+.ancho{width:60%;}
+.divgoleo{ background:#20660E center text-align:center;  font-family: "Open Sans", Arial, sans-serif; font-size:12px;
+font-weight:bold; width:60%; height:50%; border:solid;}
+.divlistas_cedula{ overflow:auto; color:#FF0000; height:295px; width:600px; text-align:center; 
+                                background:center; margin:0 auto; float:center;}
+.divlistas_cedula_sin{ overflow:auto; color:#FF0000; width:90%; max-height:150px; height: 150px;
+                                       background:center; margin:0 auto; }
+.div_equi_deudores{ overflow:auto; color:#FF0000; width:85%; max-height:170px; height: 150px; text-align:center; 
+                                background:center; margin:0 auto; }
+.alin_lefth{text-align: right;}
+.fild_sesion{border: #22670B solid;  width: auto; height:auto; max-height: 80px; max-width: 450px; margin-left: 100px; margin-right: 100px;}
+.font_arial{font-family: Arial; font-size: 12px; font-style: normal; }
+.contenido_justificado{text-align: center; border: #FF0000, solid;}
+.contenedor_principal{height: 300px; width: 900px; color: #FF0000; max-height: 900px; max-width: 600px; 
+                                      border-bottom-color:#22670B ;background: darkblue; 
+                                      border: #ff0000, solid; }
+.no_panding{padding: 0, 0, 0, 0;  }
+.legend_title{font-family: Arial;font-size: medium; font-weight: bold; }
 
 
-   color:white;
- 
-	}
-	
-	
-			.titulo{
-
-
-		text-align:center;
-		font-weight:bold;
-		color:white;
-		
-		
-	}
-				.tlistado{
-
-
-background-color:#000000;
-    font-family: "Open Sans", Arial, sans-serif;
-    font-size: 13px;
-    color: #fff;
-    text-align: center;
-    font-weight: bold;
-		
-		
-	}
-	
-	
-			.derecha{
-
-		text-align:right;
-		width:25%;
-		
-	}
-	
-	.izq{
-
-		text-align:left;
-
-		
-	}
-nav ul li a:hover{
-	color: #FFEE88;
-}
-
-.personales{
-	max-width:1000px;
-	text-align:center;
-	color:white;
-}
-.personales img{
-	text-align:center;
-	width:11%;
-	height:11%;
-	
-	
-}
-.avatar img{
-	border:5px solid white;
-	margin-left:30px;
-}
-
-#footer { font-size:12px; position: relative; margin-top: -50px; /* altura en px del footer con valor negativo */ height: 50px; /* Altura del Footer en px*/ clear: both; background: #286af0; text-align: center; color: #FFFFFF; margin-top: 12px;}
-
-
-#contenedor{
-	--background-image:url('../css/fondo.jpg');;
-	margin:0 auto;
-	max-width:1100px;
-}
-#contenedor input[type=text]{
-max-width:100%;
-}
-
-#contenedor table{
-font-size:13px;
-color:blue;
-}
-
-#tabs ul li{
-font-size:12px;
-color:blue;
-}
-
-
-
-#datos{
-	border:0px solid black;
-	display: inline-block;
-	padding:10px;
-}
-#datos a{
-	color:whitesmoke;
-}
-#websites{
-	font-size:0;
-	text-align:center;
-}
-#websites article{
-	--background:#ccc;
-	--border:2px solid lightgray;
-	border-radius:5px;
-	color: black;
-	font-size:15px;
-	margin:6px;
-	padding:9px;
-	width:130px;
-}
-
-#websites img {
-	-webkit-transition:.2s;
--moz-transition:.2s;
--o-transition:.2s;
-  -ms-transition:.2s;
-}
-#websites article:hover img{
-	-webkit-transform:scale(1.1);
--moz-transform:scale(1.1);
--o-transform:scale(1.1);
-  -ms-transform:scale(1.1);
-
-}
-@media screen and (max-width:800px){
-	nav ul li {
-		width:25%;
-	}
-	nav ul li img {
-		height:50px;
-
-	}
-	
-		.personales img{
-		width:15%;
-	height:20%;
-	}
-}
-@media screen and (max-width:480px){
-	#datos{
-		display: block;
-		text-align:center;
-	}
-	.avatar,.personales{
-		float: none;
-	}
-	.avatar img {
-		margin:10px 0;
-	}
-nav ul li img {
-		height:50px;
-
-	}
-}

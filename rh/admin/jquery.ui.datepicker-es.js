@@ -24,13 +24,13 @@ jQuery(function($){
 $("#datepicker").datepicker({
 changeMonth: true,
 changeYear: true,
-yearRange: "1940:2015"
+yearRange: "2001:2015"
 });
 
        
 $("#datepicker2").datepicker({
 changeMonth: true,
 changeYear: true,
-yearRange: "1990:2015"
+yearRange: "2001:2015"
 });
 });

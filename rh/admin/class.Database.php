@@ -3,9 +3,9 @@
 class Database
 {
     private static $db_host        = "localhost";
-    private static $db_user        = "root";
-    private static $db_password    = "";
-    private static $db_database    = "rhumanos";
+    private static $db_user        = "prevenla_rh";
+    private static $db_password    = "rhmeze00";
+    private static $db_database    = "prevenla_rh";
 
     static function select($query)
     {

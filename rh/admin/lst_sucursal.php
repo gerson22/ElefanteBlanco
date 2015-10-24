@@ -33,7 +33,7 @@ include_once("validar_admin.php");
             function regresar()
             {
 
-                location.href='index2.html';
+                location.href='index2.php';
             }
             function alta()
             {
@@ -157,9 +157,39 @@ window.open(archivo,'popup','width=550,height=200,top='+coordy+',left='+coordx);
 
 
  <script>
-$(function() {
-$( "#tabs" ).tabs();
-});
+function eliminar()
+        {
+                 valido=false;
+             for(var i = 0; i < document.frmAdeudo.elements.length; i++)
+             {
+          
+                  if(document.frmAdeudo[i].type=="checkbox" && document.frmAdeudo[i].checked==true)
+                  {
+                
+                  valido=true;
+                  return confirma();
+                  }
+             }
+             
+                  if(!valido)
+                  {
+                          alert('Para eliminar debes seleccionar al menos una casilla de verificación'); 
+                          return;
+                  }
+       }
+       
+       function confirma() {
+  var answer = confirm("¿Está seguro de realizar esta operación?")
+  if (answer)
+  {
+    document.frmAdeudo.submit();
+
+  }
+  else
+  {
+    return;
+  }
+}
 
 </script>
 
@@ -179,6 +209,22 @@ $( "#tabs" ).tabs();
        <div class="centrar">
      
              <?php
+             
+                       if(!empty($_POST['eliminar']))
+        { 
+			
+            
+               $aLista=array_keys($_POST['eliminar']);
+               foreach($aLista as $iId)
+               {
+                        
+                         Maestro::eliminaSucursal($iId);
+                 }
+
+               
+              
+         }
+         
         $sucursales = Maestro::listaSucursales();
         
     if($sucursales != '')
@@ -186,13 +232,14 @@ $( "#tabs" ).tabs();
 
 
                         echo '<table class=listado style="width:60%;" border="1">';
-             echo '<tr class=tlistado><td>No.</td><td style="width:35%;">Empresa</td><td style="width:45%;">Sucursal</td></tr>';
+             echo '<tr class=tlistado><td>No.</td><td style="width:35%;">Empresa</td><td style="width:45%;">Sucursal</td><td></td></tr>';
        $cont=0;
                                
                                     foreach($sucursales as $sucursal)
                                     {
                                        $cont++;
-                                          echo '<tr><td class=centrar>'.$cont.'</td><td class=centrar>'.utf8_decode($sucursal['nombre_empresa']).'</td><td class=centrar>'.utf8_decode($sucursal['nombre_suc']).'</td></tr>';
+                                          echo '<tr><td class=centrar>'.$cont.'</td><td class=centrar>'.utf8_decode($sucursal['nombre_empresa']).'</td><td class=centrar>'.utf8_decode($sucursal['nombre_suc']).'</td>
+                                          <td><input type=checkbox name=eliminar['.$sucursal['id_suc'].'] value='.$sucursal['id_suc'].'></td></tr>';
                                     }
      
               
@@ -224,7 +271,8 @@ $( "#tabs" ).tabs();
          else
          echo "<input type=button value=Agregar class=boton onclick=ventana2('am_sucursal.php')>";  
     ?>	       
-     &nbsp;&nbsp;&nbsp; <input type="button" value="Regresar" class="boton" onClick="regresar()"></center>
+     &nbsp;&nbsp;&nbsp; <input type="button" value="Regresar" class="boton" onClick="regresar()">
+     &nbsp;&nbsp;&nbsp; <input type="button" value="Eliminar" class="boton" onClick="eliminar()"></center>
 
 
 

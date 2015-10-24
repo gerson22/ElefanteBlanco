@@ -33,7 +33,7 @@ include_once("validar_admin.php");
             function regresar()
             {
 
-                location.href='index2.html';
+                location.href='index2.php';
             }
             function alta()
             {

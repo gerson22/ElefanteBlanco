@@ -198,7 +198,7 @@ function eliminar()
     <body onload="cursor();">
 <section id="contenedor">
 
-   <div class="titulo"><br><br>Empresas<br>
+   <div class="titulo"><br><br>Puestos<br>
 
 </div>
    
@@ -209,7 +209,7 @@ function eliminar()
      
              <?php
              
-             if(!empty($_POST['eliminar']))
+                       if(!empty($_POST['eliminar']))
         { 
 			
             
@@ -217,27 +217,28 @@ function eliminar()
                foreach($aLista as $iId)
                {
                         
-                         Maestro::eliminaEmpresa($iId);
+                         Maestro::eliminaPuesto($iId);
                  }
 
                
               
          }
-        $empresas = Maestro::listaEmpresas();
+         
+        $puestos = Maestro::listaPuestos();
         
-    if($empresas != '')
+    if($puestos != '')
     {
 
 
                         echo '<table class=listado style="width:40%;" border="1">';
-             echo '<tr class=tlistado><td>No.</td><td style="width:75%;">Empresa</td><td></td></tr>';
+             echo '<tr class=tlistado><td style="width:5%;">No.</td><td style="width:20%;">Nombre</td><td style="width:5%;"></td></tr>';
        $cont=0;
                                
-                                    foreach($empresas as $empresa)
+                                    foreach($puestos as $puestos)
                                     {
                                        $cont++;
-                                          echo '<tr><td class=centrar>'.$cont.'</td><td class=centrar>'.utf8_decode($empresa['nombre_empresa']).'</td>
-                                          <td><input type=checkbox name=eliminar['.$empresa['id_empresa'].'] value='.$empresa['id_empresa'].'></td></tr>';
+                                          echo '<tr><td class=centrar>'.$cont.'</td><td class=centrar>'.$puestos['descr_puesto'].'</td>
+                                             <td><input type=checkbox name=eliminar['.$puestos['id_puesto'].'] value='.$puestos['id_puesto'].'></td></tr>';
                                     }
      
               
@@ -267,7 +268,7 @@ function eliminar()
             echo '<input type=submit value=Actualizar class=boton>';            
          }
          else
-         echo "<input type=button value=Agregar class=boton onclick=ventana2('am_empresa.php')>";  
+         echo "<input type=button value=Agregar class=boton onclick=ventana2('am_puestos.php')>";  
     ?>	       
      &nbsp;&nbsp;&nbsp; <input type="button" value="Regresar" class="boton" onClick="regresar()">
      &nbsp;&nbsp;&nbsp; <input type="button" value="Eliminar" class="boton" onClick="eliminar()"></center>
